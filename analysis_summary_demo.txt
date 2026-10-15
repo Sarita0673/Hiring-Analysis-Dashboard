@@ -1,0 +1,15 @@
+INTERNSHIP & FRESHER HIRING ANALYSIS — DEMO ONLY
+
+WARNING: This dataset is SYNTHETIC and all rows are fabricated for software demonstration.
+It is NOT genuine public job listing data and must NOT be submitted as real data under your PRS.
+
+Rows: 250
+Distinct demo companies: 15
+Distinct role categories: 12
+Top demo role: Digital Marketing Intern (35 rows)
+Top demo work mode: On-site (97 rows)
+Top demo location: Mumbai (31 rows)
+Top demo skill: SQL
+
+These metrics only demonstrate how the analysis and dashboard work. They are not evidence of actual hiring-market trends.
+Replace this dataset with genuine public listings before using results in your final project report.

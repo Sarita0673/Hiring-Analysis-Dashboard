@@ -1,0 +1,166 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hiring Analysis KPI Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+
+<aside class="sidebar">
+    <h2>HireAnalytics</h2>
+    <p class="side-label">ANALYTICS</p>
+    <a class="active" href="#overview">Dashboard Overview</a>
+    <a href="#charts">Hiring Analytics</a>
+    <a href="#skills">Skills Analysis</a>
+    <a href="#listings">Job Listings</a>
+    <div class="sidebar-bottom">Internship & Fresher<br>Hiring Analysis</div>
+</aside>
+
+<main class="main" id="overview">
+    <header class="topbar">
+        <div>
+            <p class="eyebrow">DATA ANALYTICS PROJECT</p>
+            <h1>Hiring Analysis Dashboard</h1>
+            <p class="subtitle">Internship and fresher job market overview</p>
+        </div>
+        <button onclick="resetFilters()">Reset Filters</button>
+    </header>
+
+    <div class="notice">
+        Demo dashboard — figures are illustrative, not verified market statistics.
+    </div>
+
+    <section class="filters">
+        <label>Work Mode
+            <select id="modeFilter">
+                <option value="All">All Modes</option>
+                <option>Remote</option>
+                <option>Hybrid</option>
+                <option>On-site</option>
+            </select>
+        </label>
+
+        <label>Role
+            <select id="roleFilter">
+                <option value="All">All Roles</option>
+            </select>
+        </label>
+
+        <label>Location
+            <select id="locationFilter">
+                <option value="All">All Locations</option>
+            </select>
+        </label>
+    </section>
+
+    <section class="kpi-grid">
+        <article class="kpi-card">
+            <div class="kpi-heading">Total Job Listings <span>▤</span></div>
+            <h2 id="totalJobs">0</h2>
+            <p>Listings in current selection</p>
+        </article>
+
+        <article class="kpi-card">
+            <div class="kpi-heading">Unique Companies <span>▥</span></div>
+            <h2 id="totalCompanies">0</h2>
+            <p>Distinct company names</p>
+        </article>
+
+        <article class="kpi-card">
+            <div class="kpi-heading">Job Roles <span>◫</span></div>
+            <h2 id="totalRoles">0</h2>
+            <p>Distinct roles available</p>
+        </article>
+
+        <article class="kpi-card">
+            <div class="kpi-heading">Stipend Mentioned <span>₹</span></div>
+            <h2 id="stipendRate">0%</h2>
+            <p id="stipendDetail">0 listings</p>
+        </article>
+
+        <article class="kpi-card">
+            <div class="kpi-heading">Remote Listings <span>⌘</span></div>
+            <h2 id="remoteRate">0%</h2>
+            <p id="remoteDetail">0 listings</p>
+        </article>
+
+        <article class="kpi-card">
+            <div class="kpi-heading">Locations Covered <span>⌖</span></div>
+            <h2 id="totalLocations">0</h2>
+            <p>Distinct locations</p>
+        </article>
+    </section>
+
+    <section class="chart-grid" id="charts">
+        <article class="panel">
+            <h3>Job Listings by Role</h3>
+            <div class="chart-area"><canvas id="roleChart"></canvas></div>
+        </article>
+
+        <article class="panel">
+            <h3>Work Mode Distribution</h3>
+            <div class="chart-area"><canvas id="modeChart"></canvas></div>
+        </article>
+
+        <article class="panel" id="skills">
+            <h3>Top Requested Skills</h3>
+            <div class="chart-area"><canvas id="skillsChart"></canvas></div>
+        </article>
+
+        <article class="panel">
+            <h3>Hiring by Location</h3>
+            <div class="chart-area"><canvas id="locationChart"></canvas></div>
+        </article>
+
+        <article class="panel">
+            <h3>Stipend Availability</h3>
+            <div class="chart-area"><canvas id="stipendChart"></canvas></div>
+        </article>
+
+        <article class="panel">
+            <h3>Top Technologies</h3>
+            <div class="chart-area"><canvas id="technologyChart"></canvas></div>
+        </article>
+    </section>
+
+    <section class="panel table-panel" id="listings">
+        <div class="table-heading">
+            <div>
+                <h3>Job Listings Details</h3>
+                <p>Records matching the selected filters</p>
+            </div>
+            <input type="search" id="searchInput"
+                   placeholder="Search company or skill...">
+        </div>
+
+        <div class="table-scroll">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Job ID</th>
+                        <th>Role</th>
+                        <th>Company</th>
+                        <th>Skills</th>
+                        <th>Stipend</th>
+                        <th>Work Mode</th>
+                        <th>Location</th>
+                    </tr>
+                </thead>
+                <tbody id="jobTable"></tbody>
+            </table>
+        </div>
+        <p id="noResults" hidden>No matching listings found.</p>
+    </section>
+
+    <footer>
+        Internship & Fresher Hiring Analysis | HTML, CSS, JavaScript & Chart.js
+    </footer>
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>

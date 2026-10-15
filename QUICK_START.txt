@@ -1,0 +1,12 @@
+QUICK START
+1. Extract the ZIP.
+2. Open the Internship_Hiring_Analysis folder in VS Code.
+3. Add genuine listings to data/raw/internship_hiring_data.xlsx.
+4. In Git Bash, from the project root:
+   python -m venv venv
+   source venv/Scripts/activate
+   pip install -r requirements.txt
+   python python/analyze_hiring.py
+5. Read report/analysis_summary.txt and view charts in dashboard/charts/.
+6. Follow sql/hiring_analysis.sql for MySQL.
+7. Follow dashboard/POWER_BI_GUIDE.md to build and save the Power BI dashboard.
